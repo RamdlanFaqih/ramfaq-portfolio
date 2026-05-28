@@ -82,7 +82,11 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
       className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4"
     >
-      <nav className="flex items-center gap-1 bg-white/70 backdrop-blur-md border border-neutral-200/50 px-3 py-2 rounded-full shadow-sm">
+      <nav className={`flex items-center gap-1 border px-3 py-2 rounded-full shadow-sm transition-all duration-500 ${
+        activeSection === "contact"
+          ? "bg-neutral-950 border-neutral-800"
+          : "bg-white/70 backdrop-blur-md border-neutral-200/50"
+      }`}>
         {navItems.map((item) => {
           const isActive = activeSection === item.href.substring(1);
           return (
@@ -90,14 +94,20 @@ export default function Navbar() {
               key={item.label}
               href={item.href}
               onClick={(e) => handleClick(e, item.href)}
-              className={`relative px-4 py-1.5 text-sm font-medium transition-colors duration-300 rounded-full ${
-                isActive ? "text-neutral-900" : "text-neutral-500 hover:text-neutral-900"
+              className={`relative px-4 py-1.5 text-sm font-medium transition-colors duration-300 rounded-full isolate ${
+                isActive
+                  ? "text-neutral-900"
+                  : activeSection === "contact"
+                    ? "text-white/60 hover:text-white"
+                    : "text-neutral-500 hover:text-neutral-900"
               }`}
             >
               {isActive && (
                 <motion.div
                   layoutId="activeNav"
-                  className="absolute inset-0 bg-neutral-100 rounded-full -z-10"
+                  className={`absolute inset-0 rounded-full -z-10 ${
+                    activeSection === "contact" ? "bg-white" : "bg-neutral-100"
+                  }`}
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}

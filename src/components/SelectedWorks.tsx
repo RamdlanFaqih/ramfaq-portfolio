@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { projectsData } from "@/data/projects";
 
-import { BrowserFrame, PhoneFrame, WebMobileFrame } from "@/components/DeviceFrames";
+import { BrowserFrame, PhoneFrame, WebMobileFrame, DoublePhoneFrame } from "@/components/DeviceFrames";
 
 export default function SelectedWorks() {
   return (
@@ -29,6 +29,7 @@ export default function SelectedWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-150px" }}
               transition={{ duration: 0.8, ease: "easeOut" }}
+              whileHover="hover"
               className={`flex flex-col ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 md:gap-24 items-center group`}
             >
               {/* Visual Showcase (Clickable Device Mockups) */}
@@ -40,7 +41,11 @@ export default function SelectedWorks() {
                   <BrowserFrame title={project.title} image={project.image} index={index} />
                 )}
                 {project.type === "mobile-only" && (
-                  <PhoneFrame title={project.title} image={project.image} />
+                  project.doubleMockup ? (
+                    <DoublePhoneFrame title={project.title} images={project.images} />
+                  ) : (
+                    <PhoneFrame title={project.title} image={project.image} />
+                  )
                 )}
                 {project.type === "web-mobile" && (
                   <WebMobileFrame title={project.title} image={project.image} mobileImage={project.mobileImage} index={index} />

@@ -106,18 +106,51 @@ export default function ProjectDetail() {
         >
           <div className="w-full h-full max-w-4xl max-h-full flex items-center justify-center overflow-visible">
             {project.type === "web-only" && (
-              <div className="w-full aspect-[4/3] max-w-2xl h-auto">
-                <BrowserFrame title={project.title} image={project.image} index={currentProjectIndex} />
+              <div className="w-full h-full max-w-4xl relative flex items-center justify-center">
+                {/* Back Left Browser */}
+                <div className="absolute left-[-8%] w-[48%] aspect-[4/3] scale-85 opacity-50 z-0">
+                  <BrowserFrame title={`${project.title} Screen 1`} image={project.images?.[0]} index={1} />
+                </div>
+                {/* Center Browser */}
+                <div className="w-[62%] aspect-[4/3] z-10 shadow-2xl relative">
+                  <BrowserFrame title={`${project.title} Screen 2`} image={project.images?.[1] || project.image} index={currentProjectIndex} />
+                </div>
+                {/* Back Right Browser */}
+                <div className="absolute right-[-8%] w-[48%] aspect-[4/3] scale-85 opacity-50 z-0">
+                  <BrowserFrame title={`${project.title} Screen 3`} image={project.images?.[2]} index={3} />
+                </div>
               </div>
             )}
             {project.type === "mobile-only" && (
-              <div className="h-full flex items-center">
-                <PhoneFrame title={project.title} image={project.image} />
+              <div className="h-full flex items-center gap-3 md:gap-8 justify-center overflow-visible py-4 scale-[0.8] md:scale-95 origin-center">
+                {/* Left Phone */}
+                <div className="scale-90 origin-center opacity-80">
+                  <PhoneFrame title={`${project.title} Screen 1`} image={project.images?.[0]} index={1} />
+                </div>
+                {/* Center Phone */}
+                <div className="scale-100 origin-center z-10 shadow-2xl">
+                  <PhoneFrame title={`${project.title} Screen 2`} image={project.images?.[1] || project.image} index={2} />
+                </div>
+                {/* Right Phone */}
+                <div className="scale-90 origin-center opacity-80">
+                  <PhoneFrame title={`${project.title} Screen 3`} image={project.images?.[2]} index={3} />
+                </div>
               </div>
             )}
             {project.type === "web-mobile" && (
-              <div className="w-full aspect-[4/3] max-w-2xl h-auto relative">
-                <WebMobileFrame title={project.title} image={project.image} mobileImage={project.mobileImage} index={currentProjectIndex} />
+              <div className="w-full h-full max-w-4xl relative flex items-center justify-center scale-95">
+                {/* Web frame in background */}
+                <div className="w-[75%] aspect-[4/3] z-0 opacity-80 scale-95">
+                  <BrowserFrame title={project.title} image={project.images?.[0] || project.image} index={1} />
+                </div>
+                {/* Foreground Mobile 1 */}
+                <div className="absolute left-[2%] bottom-[-20px] z-10 scale-[0.7] md:scale-85 origin-bottom-left">
+                  <PhoneFrame title={`${project.title} Mobile 1`} image={project.images?.[1] || project.mobileImage} index={2} />
+                </div>
+                {/* Foreground Mobile 2 */}
+                <div className="absolute right-[2%] bottom-[-20px] z-10 scale-[0.7] md:scale-85 origin-bottom-right">
+                  <PhoneFrame title={`${project.title} Mobile 2`} image={project.images?.[2] || project.mobileImage} index={3} />
+                </div>
               </div>
             )}
           </div>
