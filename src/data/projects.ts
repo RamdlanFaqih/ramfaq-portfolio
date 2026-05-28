@@ -48,7 +48,7 @@ export const projectsData: Project[] = [
     tech: ["React Native", "Expo", "TypeScript", "Zustand", "Tailwind CSS", "Firebase"],
     description: "A social connection platform helping users find local companions for various activities. Integrated real-time chat, location-based matching, and secure verification flows.",
     type: "mobile-only",
-    image: "",
+    image: "/images/temenin.png",
     images: ["", "", ""],
     year: "2024",
     role: "Frontend Engineer",
@@ -110,30 +110,30 @@ export const projectsData: Project[] = [
       "Maintaining fluid, 60fps render speeds on both desktop and high-end mobile browsers."
     ]
   },
-  {
-    slug: "karpous",
-    title: "Karpous Mobile App",
-    tech: ["React Native", "Zustand", "TanStack Query", "Ethers.js", "Shufti Pro KYC", "Firebase"],
-    description: "Developed core mobile features for a Global RWA (Real-World Asset) Exchange. Implemented secure USDT deposit and withdrawal flows using Ethers.js, integrated instant KYC verification, Zoho digital signatures, and real-time push notifications.",
-    type: "mobile-only",
-    image: "",
-    images: ["", "", ""],
-    year: "2024 - 2025",
-    role: "Frontend Engineer",
-    client: "Orbit Tech Solutions",
-    overview: "Karpous is a mobile client for a pioneering Global Real-World Asset (RWA) Exchange. The app enables retail and institutional investors to easily access, browse, trade, and invest in fractionalized real-world assets like premium real estate and commodities on-chain.",
-    keyFeatures: [
-      "Secure USDT crypto wallet deposit, transfer, and withdrawal flows using Ethers.js.",
-      "Automated and frictionless KYC (Know Your Customer) OCR checkouts using Shufti Pro API.",
-      "Embedded Zoho document signing portal for compliance and transaction contracts.",
-      "Real-time transactional and account event push alerts powered by Firebase Cloud Messaging."
-    ],
-    challenges: [
-      "Optimizing heavy state synchronization across high-frequency trade order books on mobile screens.",
-      "Ensuring cryptographic security and safe private key/session handling in React Native.",
-      "Creating robust and user-friendly KYC workflows that handle low-quality camera inputs and OCR errors gracefully."
-    ]
-  },
+  // {
+  //   slug: "karpous",
+  //   title: "Karpous Mobile App",
+  //   tech: ["React Native", "Zustand", "TanStack Query", "Ethers.js", "Shufti Pro KYC", "Firebase"],
+  //   description: "Developed core mobile features for a Global RWA (Real-World Asset) Exchange. Implemented secure USDT deposit and withdrawal flows using Ethers.js, integrated instant KYC verification, Zoho digital signatures, and real-time push notifications.",
+  //   type: "mobile-only",
+  //   image: "",
+  //   images: ["", "", ""],
+  //   year: "2024 - 2025",
+  //   role: "Frontend Engineer",
+  //   client: "Orbit Tech Solutions",
+  //   overview: "Karpous is a mobile client for a pioneering Global Real-World Asset (RWA) Exchange. The app enables retail and institutional investors to easily access, browse, trade, and invest in fractionalized real-world assets like premium real estate and commodities on-chain.",
+  //   keyFeatures: [
+  //     "Secure USDT crypto wallet deposit, transfer, and withdrawal flows using Ethers.js.",
+  //     "Automated and frictionless KYC (Know Your Customer) OCR checkouts using Shufti Pro API.",
+  //     "Embedded Zoho document signing portal for compliance and transaction contracts.",
+  //     "Real-time transactional and account event push alerts powered by Firebase Cloud Messaging."
+  //   ],
+  //   challenges: [
+  //     "Optimizing heavy state synchronization across high-frequency trade order books on mobile screens.",
+  //     "Ensuring cryptographic security and safe private key/session handling in React Native.",
+  //     "Creating robust and user-friendly KYC workflows that handle low-quality camera inputs and OCR errors gracefully."
+  //   ]
+  // },
   {
     slug: "tpa-employee-hub",
     title: "TPA Employee Hub (Mobile)",
