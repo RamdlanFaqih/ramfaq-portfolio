@@ -30,8 +30,21 @@ export default function SelectedWorks() {
               viewport={{ once: true, margin: "-150px" }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               whileHover="hover"
-              className={`flex flex-col ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 md:gap-24 items-center group`}
+              className={`flex flex-col ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 md:gap-24 items-center group`}
             >
+              {/* Mobile-only Project Title (Top of Stack) */}
+              <div className="w-full md:hidden">
+                <h3 className="text-2xl font-medium">
+                  <Link 
+                    href={`/projects/${project.slug}`}
+                    className="hover:text-neutral-500 transition-colors duration-300 inline-flex items-center gap-2"
+                  >
+                    {project.title}
+                    <ArrowUpRight className="w-6 h-6 text-neutral-400 group-hover:text-neutral-900 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" strokeWidth={1.5} />
+                  </Link>
+                </h3>
+              </div>
+
               {/* Visual Showcase (Clickable Device Mockups) */}
               <Link 
                 href={`/projects/${project.slug}`}
@@ -67,7 +80,7 @@ export default function SelectedWorks() {
                   </span>
                 </div>
                 
-                <h3 className="text-2xl md:text-3xl font-medium">
+                <h3 className="text-2xl md:text-3xl font-medium hidden md:block">
                   <Link 
                     href={`/projects/${project.slug}`}
                     className="hover:text-neutral-500 transition-colors duration-300 inline-flex items-center gap-2"

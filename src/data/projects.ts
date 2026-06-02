@@ -27,7 +27,7 @@ export const projectsData: Project[] = [
     type: "mobile-only",
     image: "/images/sancha-1.png",
     images: ["/images/sancha-1.png", "/images/sancha-2.png", "/images/sancha-3.png"],
-    year: "2025",
+    year: "2026",
     doubleMockup: true,
     role: "Mobile App Engineer",
     client: "Sancha Tea",
