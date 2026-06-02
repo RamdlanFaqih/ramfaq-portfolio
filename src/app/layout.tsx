@@ -8,7 +8,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Frontend Developer Portfolio",
+  title: "Ramdlan Faqih",
   description: "Minimalist portfolio showcasing web and mobile development projects.",
 };
 
