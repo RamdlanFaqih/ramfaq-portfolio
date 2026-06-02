@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  "React", "Next.js", "TypeScript", "React Native", "Tailwind CSS", "Framer Motion", "Node.js", "GraphQL"
+  "React", "Next.js", "TypeScript", "React Native", "Flutter", "Node.js"
 ];
 
 export default function SkillsMarquee() {

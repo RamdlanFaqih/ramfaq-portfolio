@@ -22,24 +22,26 @@ export const projectsData: Project[] = [
   {
     slug: "sancha-tea",
     title: "Sancha Tea App",
-    tech: ["Flutter", "Dart", "BLoC", "Retrofit", "Hive DB"],
-    description: "A premium e-commerce mobile application for tea lovers. Built with Flutter using BLoC state management, featuring custom product builders, localized tea pairing guides, and fast checkout.",
+    tech: ["Flutter", "Dart", "GetX", "Dio", "GetStorage", "Firebase Cloud Messaging", "flutter_map"],
+    description: "A premium mobile ordering and loyalty application built for Sancha Tea. Powered by GetX and Dio, featuring a secure WhatsApp OTP login with Universal Link routing, a geospatial branch finder, and a highly customizable UI theme system.",
     type: "mobile-only",
     image: "/images/sancha-1.png",
     images: ["/images/sancha-1.png", "/images/sancha-2.png", "/images/sancha-3.png"],
-    year: "2024",
+    year: "2025",
     doubleMockup: true,
     role: "Mobile App Engineer",
-    client: "Sancha Tea Co.",
-    overview: "Sancha Tea App is a custom tea shop and wellness mobile commerce client. It provides users with interactive artisanal tea blends, personalized brewing recommendations, and custom subscription boxes.",
+    client: "Sancha Tea",
+    overview: "Sancha Tea App is a cross-border F&B mobile ordering and loyalty application integrated with ESB systems (ESO QS & ESB Loop). It provides users with a seamless checkout flow to buy premium tea products, check nearby outlet details, track points history, and redeem tiered membership rewards/vouchers across Indonesia and Malaysia.",
     keyFeatures: [
-      "Artisanal blend customizer with real-time price updates.",
-      "Interactive brewing timer, temperature advice, and water-ratio calculations.",
-      "Offline shopping cart support using Hive database caching and standard BLoC patterns."
+      "WhatsApp OTP-based Authentication: Secure and low-friction login leveraging Loop APIs and automated Universal Link/App Link redirects.",
+      "Dynamic Cross-Border Multi-Currency Support: Custom locale-based layout formatting supporting both IDR (Rp) and MYR (RM) depending on the active branch.",
+      "ESB Loop Loyalty & Rewards Integration: Dynamic membership dashboard showing tiered benefits, points accumulation, and personalized 'Best Deals'.",
+      "Robust Cart & Voucher Policy Validation: Pure-function validation layers on the frontend restricting coupon and free-item usage rules before checkout."
     ],
     challenges: [
-      "Configuring and caching diverse, high-fidelity tea brewing countdown timers running concurrently.",
-      "Syncing complex cart order lists and coupons offline with standard server REST APIs."
+      "Securing app deep-link routing and state synchronization to guarantee reliable login redirection from external WhatsApp chat sessions.",
+      "Orchestrating concurrent API requests and state management across dual-backend engines (ESO QS and ESB Loop) within a single ordering transaction.",
+      "Ensuring performance efficiency when handling custom theme extensions (fonts, custom surfaces, shadows) and rendering map layers dynamically."
     ]
   },
   {
