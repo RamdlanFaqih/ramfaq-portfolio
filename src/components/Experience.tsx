@@ -13,6 +13,21 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
+    role: "Mobile Engineer",
+    company: "PT. Super Multi Bisnis Internasional",
+    date: "Jun 2026 - Present",
+    achievements: [
+      "Developed and maintained production mobile applications using Flutter, with Riverpod for scalable state management and clear separation between UI, business logic, and application state.",
+      "Implemented real-time application flows using WebSocket, including connection lifecycle handling, state synchronization, reconnection scenarios, and real-time event updates.",
+      "Integrated Firebase Cloud Messaging (FCM) to support push notifications across Android and iOS, including foreground, background, and terminated application states.",
+      "Implemented iOS incoming call functionality using PushKit and CallKit, enabling VoIP-style call notifications and native incoming call experiences while the application is running in the background.",
+      "Handled mobile application lifecycle and background-state edge cases to maintain reliable behavior for notifications, real-time events, and incoming calls.",
+      "Collaborated closely with backend engineers to define WebSocket events, API behavior, notification payloads, and mobile-specific integration requirements.",
+      "Investigated and resolved production-level mobile issues involving application lifecycle, network connectivity, asynchronous state updates, and platform-specific iOS/Android behavior.",
+      "Supported mobile release preparation, debugging, and deployment across development, testing, and production environments."
+    ]
+  },
+  {
     role: "Frontend Developer (Freelance)",
     company: "Rotasi Galaksi Teknologi (Rogatekno)",
     date: "Apr 2023 - Present",

@@ -8,8 +8,17 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Ramdlan Faqih",
-  description: "Minimalist portfolio showcasing web and mobile development projects.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://ramdlanfaqih.com"),
+  title: {
+    default: "Ramdlan Faqih — Mobile & Web Engineer",
+    template: "%s | Ramdlan Faqih",
+  },
+  description: "Minimalist portfolio showcasing high-performance mobile and web engineering projects.",
+  icons: {
+    icon: "/images/ramfaq-rounded.png",
+    shortcut: "/images/ramfaq-rounded.png",
+    apple: "/images/ramfaq-rounded.png",
+  },
 };
 
 export default function RootLayout({
