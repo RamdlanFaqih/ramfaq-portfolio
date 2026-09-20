@@ -20,6 +20,85 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
+    slug: "super-app",
+    title: "Super App (Customer)",
+    tech: ["Flutter", "Dart", "Riverpod", "WebRTC", "iOS CallKit", "PushKit (VoIP)", "Shorebird (OTA)", "Dio", "Sentry"],
+    description: "A high-scale consumer on-demand super app ecosystem delivering food delivery, grocery, courier services, and digital utilities. Architected the PPOB & Raja Biller engine, real-time in-app WebRTC calling with iOS CallKit & PushKit VoIP integration, Shorebird OTA updates, and DNS-over-HTTPS fallback.",
+    type: "mobile-only",
+    image: "",
+    images: ["", "", ""],
+    year: "2024 - 2025",
+    role: "Mobile App Engineer",
+    client: "PT Super Multi Bisnis Internasional",
+    overview: "Super App is an integrated consumer super application connecting users with multi-vertical on-demand services across Indonesia, including food delivery (SuperFood), grocery shopping (SuperMart), point-to-point package courier (SuperSend), and digital biller utilities. As part of the mobile engineering team, my core contributions centered on building the end-to-end PPOB biller infrastructure, engineering cross-platform WebRTC voice calling with native iOS CallKit & PushKit VoIP background handling, integrating Shorebird code push, and hardening network resilience.",
+    keyFeatures: [
+      "Real-Time WebRTC Calling & iOS CallKit Integration: Implemented driver/customer in-app voice calling with autoGainControl audio constraints, paired with native iOS CallKit UI and Apple PushKit (VoIP push) to wake terminated apps and present native lock-screen answering.",
+      "PPOB & Raja Biller Payment Engine: Comprehensive utility biller payment flow for prepaid/postpaid cellular credit, PLN electricity tokens, PDAM water, Internet & streaming subscriptions, and MLBB gaming top-ups with server-ID verification.",
+      "Zero-Downtime Over-The-Air (OTA) Updates: Integrated Shorebird code push pipeline enabling instant production bug fixes and patch deployments directly to client devices without app store review latency.",
+      "Resilient Network Layer & DoH Fallback: Implemented DNS-over-HTTPS (DoH) fallback to bypass regional ISP DNS resolution failures, paired with strict SSL certificate validation and Sentry observability interceptors.",
+      "SuperSend Courier Logistics & Fee Separation: Decoupled platform and insurance fee calculation modules, implemented interactive receiver location pin picking, and debounced shared cart notes.",
+      "Ratings, Reviews & Driver Tipping: Built modular shop and item rating submissions with dynamic payload handling, tipping flows for drivers, and resolved native WebRTC audio call lifecycle bugs on iOS.",
+      "Silent Background State Revalidation: Engineered smart order state refresh on tab switching to eliminate stale order states without triggering disruptive full-screen loading spinners."
+    ],
+    challenges: [
+      "Complying with Apple's strict iOS PushKit requirement mandating immediate CallKit incoming call reporting upon VoIP push reception to avoid OS-level termination.",
+      "Handling heterogeneous biller response schemas, varying transaction statuses (pending, processing, failed), and distinct receipt structures across numerous third-party payment gateways seamlessly.",
+      "Guaranteeing network resilience and low-latency API communication in remote regions with unstable DNS routing via DNS-over-HTTPS and intelligent request retry layers."
+    ]
+  },
+  {
+    slug: "super-driver",
+    title: "Super Driver",
+    tech: ["Flutter", "Dart", "Riverpod", "WebRTC", "iOS CallKit", "PushKit (VoIP)", "Google Maps Flutter", "Dio", "Sentry"],
+    description: "A mission-critical on-demand mobile application for driver partners. Engineered real-time WebRTC voice calling with native iOS CallKit & PushKit VoIP background notifications, native Android background order alarm, multi-step KYC onboarding, and transparent income breakdown sheets.",
+    type: "mobile-only",
+    image: "",
+    images: ["", "", ""],
+    year: "2024 - 2025",
+    role: "Mobile App Engineer",
+    client: "PT Super Multi Bisnis Internasional",
+    overview: "Super Driver is the primary mobile tool for driver partners to accept rides, fulfill food & mart orders, coordinate parcel deliveries, and navigate turn-by-turn. Working on the driver app, I spearheaded the development of real-time in-app VoIP telecommunications via WebRTC with native iOS CallKit & PushKit background wake-ups, the native background order dispatch alarm, driver KYC onboarding, transparent financial breakdowns, and geospatial memory optimizations.",
+    keyFeatures: [
+      "Driver-to-Customer WebRTC Voice Calls & iOS CallKit: Integrated low-latency VoIP voice calling using flutter_webrtc, fully connected to native iOS CallKit and PushKit background VoIP notifications so drivers receive calls on lock-screen even with app killed.",
+      "Native Android Background Order Alarm: Architected a reliable background wake-lock and notification ringer system with duplicate suppression, ensuring drivers never miss incoming dispatch alerts even in deep device sleep (Doze mode).",
+      "Revamped Multi-Step Driver Onboarding: Built a responsive registration workflow featuring RegisterProgressBar, OCR-based document verification (KTP, SIM, STNK, BPKB, optional SKCK), custom date pickers, and re-upload tracking for rejected submissions.",
+      "Transparent Earnings & Financial Breakdown: Re-architected TransactionDetailSheet to distinctly segregate driver deposit balances, net earnings, platform commission fees, insurance items, and customer tips.",
+      "Deferred Deep Linking & Attribution: Configured deferred deep link routing through the splash screen to reliably attribute driver referral codes and Google Ads installation campaigns.",
+      "Map Rendering & Memory Optimization: Eliminated critical memory leaks in the transport marker factory by properly disposing native image codecs and byte buffers during high-frequency GPS coordinate updates."
+    ],
+    challenges: [
+      "Synchronizing WebRTC signaling state transitions, ICE candidate exchanges, and audio session categories across background-to-foreground transitions triggered by CallKit.",
+      "Bypassing aggressive Android OS battery optimization and device-specific background killers to guarantee instant dispatch alarm delivery.",
+      "Rendering dense real-time map markers and polylines at 60 FPS without memory bloat or garbage collection stutter on budget Android devices."
+    ]
+  },
+  {
+    slug: "super-merchant",
+    title: "Super Merchant",
+    tech: ["Flutter", "Dart", "Riverpod", "WebRTC", "iOS CallKit", "PushKit (VoIP)", "Chatwoot SDK", "Dio", "Sentry"],
+    description: "A merchant store and kitchen management application empowering restaurant and mart partners to process incoming orders in real-time. Engineered merchant-to-customer WebRTC VoIP calling with iOS CallKit & PushKit, persistent Android foreground service order alarm with auto-accept timers, and resilient token refresh rotation.",
+    type: "mobile-only",
+    image: "",
+    images: ["", "", ""],
+    year: "2024 - 2025",
+    role: "Mobile App Engineer",
+    client: "PT Super Multi Bisnis Internasional",
+    overview: "Super Merchant is the operational hub for merchant partners, enabling restaurant kitchens and retail grocery stores to receive on-demand orders, coordinate preparations, communicate with customers, calibrate menus, and track daily revenue. Within the team, my focus was on architecting direct WebRTC VoIP customer communications integrated with iOS CallKit & PushKit, persistent foreground order alerting, live CS support integrations, multi-flavor environments, and resilient auth session handling.",
+    keyFeatures: [
+      "Merchant-to-Customer In-App VoIP Calling & iOS CallKit: Built crystal-clear voice calling using flutter_webrtc integrated with native iOS CallKit and PushKit VoIP triggers, allowing store operators to answer calls directly from lock-screens while safeguarding WebSocket connections during active calls.",
+      "Persistent Foreground Service & Alarm: Implemented an uninterrupted Android foreground service order alarm with high-volume acoustic alerts, vibration loops, customer details propagation, and an auto-accept visual countdown timer banner.",
+      "SuperChat & Chatwoot Live Support Integration: Embedded SuperChat SDK via WebView with seamless identity resolution, alongside Chatwoot customer service tooling for expedited order resolution and dynamic message templates.",
+      "Resilient Auth Token Refresh Architecture: Hardened JWT refresh token rotation logic to handle server-side session revocations and concurrent token refreshes gracefully without kicking merchants out during active shifts.",
+      "Multi-Environment Flavor Pipeline: Engineered distinct Flutter flavor configurations for Staging and Production with isolated bundle IDs, intent filters, and Google Services manifests.",
+      "Store Financials & Operational Controls: Overhauled revenue summaries ('Total Pemasukan'), consolidated platform and insurance fee line items, enforced restaurant tax input validation, and streamlined operational store hours."
+    ],
+    challenges: [
+      "Ensuring incoming order alarms and CallKit VoIP notifications cut through loud kitchen environments continuously without getting terminated by OS background task limiters.",
+      "Preventing WebSocket disconnections and token expiration failures mid-call during merchant-customer voice communications.",
+      "Managing audio hardware session categorization (switching between loudspeaker, earpiece, and Bluetooth headsets) seamlessly during WebRTC active calls."
+    ]
+  },
+  {
     slug: "sancha-tea",
     title: "Sancha Tea App",
     tech: ["Flutter", "Dart", "GetX", "Dio", "GetStorage", "Firebase Cloud Messaging", "flutter_map"],
