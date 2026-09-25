@@ -30,7 +30,7 @@ export const projectsData: Project[] = [
     year: "2026",
     doubleMockup: true,
     role: "Mobile App Engineer",
-    client: "Sancha Tea",
+    client: "KODA",
     overview: "Sancha Tea App is a cross-border F&B mobile ordering and loyalty application integrated with ESB systems (ESO QS & ESB Loop). It provides users with a seamless checkout flow to buy premium tea products, check nearby outlet details, track points history, and redeem tiered membership rewards/vouchers across Indonesia and Malaysia.",
     keyFeatures: [
       "WhatsApp OTP-based Authentication: Secure and low-friction login leveraging Loop APIs and automated Universal Link/App Link redirects.",
