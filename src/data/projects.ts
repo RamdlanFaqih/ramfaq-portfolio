@@ -20,6 +20,99 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
+    slug: "sancha-tea",
+    title: "Sancha Tea App",
+    tech: ["Flutter", "Dart", "GetX", "Dio", "GetStorage", "Firebase Cloud Messaging", "flutter_map"],
+    description: "A premium mobile ordering and loyalty application built for Sancha Tea. Powered by GetX and Dio, featuring a secure WhatsApp OTP login with Universal Link routing, a geospatial branch finder, and a highly customizable UI theme system.",
+    type: "mobile-only",
+    image: "/images/sancha-1.png",
+    images: ["/images/sancha-1.png", "/images/sancha-2.png", "/images/sancha-3.png"],
+    year: "2026",
+    doubleMockup: true,
+    role: "Mobile App Engineer",
+    client: "Sancha Tea",
+    overview: "Sancha Tea App is a cross-border F&B mobile ordering and loyalty application integrated with ESB systems (ESO QS & ESB Loop). It provides users with a seamless checkout flow to buy premium tea products, check nearby outlet details, track points history, and redeem tiered membership rewards/vouchers across Indonesia and Malaysia.",
+    keyFeatures: [
+      "WhatsApp OTP-based Authentication: Secure and low-friction login leveraging Loop APIs and automated Universal Link/App Link redirects.",
+      "Dynamic Cross-Border Multi-Currency Support: Custom locale-based layout formatting supporting both IDR (Rp) and MYR (RM) depending on the active branch.",
+      "ESB Loop Loyalty & Rewards Integration: Dynamic membership dashboard showing tiered benefits, points accumulation, and personalized 'Best Deals'.",
+      "Robust Cart & Voucher Policy Validation: Pure-function validation layers on the frontend restricting coupon and free-item usage rules before checkout."
+    ],
+    challenges: [
+      "Securing app deep-link routing and state synchronization to guarantee reliable login redirection from external WhatsApp chat sessions.",
+      "Orchestrating concurrent API requests and state management across dual-backend engines (ESO QS and ESB Loop) within a single ordering transaction.",
+      "Ensuring performance efficiency when handling custom theme extensions (fonts, custom surfaces, shadows) and rendering map layers dynamically."
+    ]
+  },
+  {
+    slug: "temenin-id",
+    title: "Temenin.Id",
+    tech: ["React Native", "Expo", "TypeScript", "Zustand", "Tailwind CSS", "Firebase"],
+    description: "A social connection platform helping users find local companions for various activities. Integrated real-time chat, location-based matching, and secure verification flows.",
+    type: "mobile-only",
+    image: "/images/temenin.png",
+    images: ["", "", ""],
+    year: "2024",
+    role: "Mobile Engineer",
+    client: "Temenin.Id Team",
+    overview: "Temenin.Id is a social networking and activity companion mobile app. It connects individuals wanting to hire companions for events, dining, or travel with verified companion guides in their vicinity.",
+    keyFeatures: [
+      "Real-time instant chat and push notifications powered by Firebase Cloud Messaging.",
+      "Map integrations displaying nearby guides, service catalogs, and reviews.",
+      "Automated KYC checks and a secure, anonymous peer-rating framework."
+    ],
+    challenges: [
+      "Implementing low-latency push notification triggers on fast-closing app sessions.",
+      "Protecting user privacy by bounding GPS coordination reports to generalized radius bubbles."
+    ]
+  },
+  {
+    slug: "tpa-employee-hub",
+    title: "TPA Employee Hub (Mobile)",
+    tech: ["Flutter", "Dart", "BLoC", "AutoRoute", "Dio", "Freezed", "ScreenUtil"],
+    description: "A Domain-Driven Design (DDD) mobile application for employee management. Developed using Flutter and BLoC state management, enabling employees to securely submit and manage document updates (KTP, KK, Bank, BPJS) with offline support.",
+    type: "mobile-only",
+    image: "",
+    images: ["", "", ""],
+    year: "2024 - 2025",
+    role: "Mobile App Engineer",
+    client: "TPA Employee Hub",
+    overview: "TPA Employee Hub Mobile is a core mobile application designed to simplify and digitize the employee document updating process. By structuring the codebase using Domain-Driven Design (DDD) and BLoC, the app ensures robust, scalable, and responsive form entry and document submission flows for workforce updates.",
+    keyFeatures: [
+      "Secure multi-document upload and submission for KTP, Family Card (KK), Bank details, and BPJS.",
+      "Domain-Driven Design (DDD) with clean separation of layers and dependency injection via GetIt.",
+      "Responsive UI layouts across multiple device sizes using ScreenUtil and custom Theme systems.",
+      "Multi-environment setup using Flutter flavors (dev, staging, prod) to streamline releases."
+    ],
+    challenges: [
+      "Ensuring large image files and scanned documents are compressed and uploaded efficiently over unstable connections.",
+      "Managing complex code-generated models using Freezed and AutoRoute transitions without performance degradation."
+    ]
+  },
+  {
+    slug: "dashboard-tpa-employee-hub",
+    title: "TPA Employee Hub Dashboard",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "TanStack Query", "Zustand", "Zod", "Axios"],
+    description: "An administrative employee management portal built with Next.js and Tailwind CSS. Features include secure HTTPOnly cookie authentication, real-time bulk document processing, automated OCR data extraction progress queues, and unit-afdeling assignment controls.",
+    type: "web-only",
+    image: "/images/tpa-dashboard-2.png",
+    images: ["/images/tpa-dashboard-2.png", "/images/tpa-dashboard.png", "/images/tpa-dashboard-2.png"],
+    year: "2025",
+    role: "Frontend Engineer",
+    client: "KODA",
+    overview: "The Dashboard TPA Employee Hub is a premium web portal built using Next.js 16 and Tailwind CSS 4 to manage bulk employee submissions and verify extracted document data. It provides administrators with a centralized control room to track OCR parsing queues, resolve failed scans, and assign regional admins to specific organizational divisions (Afdelings).",
+    keyFeatures: [
+      "Real-time OCR progress monitoring and manual verification for parsed employee documents (KTP, KK, BPJS, Bank).",
+      "Role-based access controls and assignment structures (1 Afdeling = 1 Admin; 1 Admin = Multiple Afdelings).",
+      "Robust client state caching using Zustand with persistence and server synchronization using TanStack Query.",
+      "Secured sessions using HTTPOnly JWT cookie authentication and automated refresh token rotation."
+    ],
+    challenges: [
+      "Handling cross-origin cookie credentials safely across local development environments and production servers.",
+      "Creating an intuitive side-by-side data verification view allowing admins to audit OCR fields against raw document scans efficiently."
+    ]
+  },
+  {
     slug: "super-app",
     title: "Super App (Customer)",
     tech: ["Flutter", "Dart", "Riverpod", "WebRTC", "iOS CallKit", "PushKit (VoIP)", "Shorebird (OTA)", "Dio", "Sentry"],
@@ -99,53 +192,6 @@ export const projectsData: Project[] = [
     ]
   },
   {
-    slug: "sancha-tea",
-    title: "Sancha Tea App",
-    tech: ["Flutter", "Dart", "GetX", "Dio", "GetStorage", "Firebase Cloud Messaging", "flutter_map"],
-    description: "A premium mobile ordering and loyalty application built for Sancha Tea. Powered by GetX and Dio, featuring a secure WhatsApp OTP login with Universal Link routing, a geospatial branch finder, and a highly customizable UI theme system.",
-    type: "mobile-only",
-    image: "/images/sancha-1.png",
-    images: ["/images/sancha-1.png", "/images/sancha-2.png", "/images/sancha-3.png"],
-    year: "2026",
-    doubleMockup: true,
-    role: "Mobile App Engineer",
-    client: "Sancha Tea",
-    overview: "Sancha Tea App is a cross-border F&B mobile ordering and loyalty application integrated with ESB systems (ESO QS & ESB Loop). It provides users with a seamless checkout flow to buy premium tea products, check nearby outlet details, track points history, and redeem tiered membership rewards/vouchers across Indonesia and Malaysia.",
-    keyFeatures: [
-      "WhatsApp OTP-based Authentication: Secure and low-friction login leveraging Loop APIs and automated Universal Link/App Link redirects.",
-      "Dynamic Cross-Border Multi-Currency Support: Custom locale-based layout formatting supporting both IDR (Rp) and MYR (RM) depending on the active branch.",
-      "ESB Loop Loyalty & Rewards Integration: Dynamic membership dashboard showing tiered benefits, points accumulation, and personalized 'Best Deals'.",
-      "Robust Cart & Voucher Policy Validation: Pure-function validation layers on the frontend restricting coupon and free-item usage rules before checkout."
-    ],
-    challenges: [
-      "Securing app deep-link routing and state synchronization to guarantee reliable login redirection from external WhatsApp chat sessions.",
-      "Orchestrating concurrent API requests and state management across dual-backend engines (ESO QS and ESB Loop) within a single ordering transaction.",
-      "Ensuring performance efficiency when handling custom theme extensions (fonts, custom surfaces, shadows) and rendering map layers dynamically."
-    ]
-  },
-  {
-    slug: "temenin-id",
-    title: "Temenin.Id",
-    tech: ["React Native", "Expo", "TypeScript", "Zustand", "Tailwind CSS", "Firebase"],
-    description: "A social connection platform helping users find local companions for various activities. Integrated real-time chat, location-based matching, and secure verification flows.",
-    type: "mobile-only",
-    image: "/images/temenin.png",
-    images: ["", "", ""],
-    year: "2024",
-    role: "Frontend Engineer",
-    client: "Temenin.Id Team",
-    overview: "Temenin.Id is a social networking and activity companion mobile app. It connects individuals wanting to hire companions for events, dining, or travel with verified companion guides in their vicinity.",
-    keyFeatures: [
-      "Real-time instant chat and push notifications powered by Firebase Cloud Messaging.",
-      "Map integrations displaying nearby guides, service catalogs, and reviews.",
-      "Automated KYC checks and a secure, anonymous peer-rating framework."
-    ],
-    challenges: [
-      "Implementing low-latency push notification triggers on fast-closing app sessions.",
-      "Protecting user privacy by bounding GPS coordination reports to generalized radius bubbles."
-    ]
-  },
-  {
     slug: "fun-music-software",
     title: "Fun Music Software",
     tech: ["React Native", "TypeScript", "Redux Toolkit", "React Navigation"],
@@ -215,52 +261,6 @@ export const projectsData: Project[] = [
   //     "Creating robust and user-friendly KYC workflows that handle low-quality camera inputs and OCR errors gracefully."
   //   ]
   // },
-  {
-    slug: "tpa-employee-hub",
-    title: "TPA Employee Hub (Mobile)",
-    tech: ["Flutter", "Dart", "BLoC", "AutoRoute", "Dio", "Freezed", "ScreenUtil"],
-    description: "A Domain-Driven Design (DDD) mobile application for employee management. Developed using Flutter and BLoC state management, enabling employees to securely submit and manage document updates (KTP, KK, Bank, BPJS) with offline support.",
-    type: "mobile-only",
-    image: "",
-    images: ["", "", ""],
-    year: "2024 - 2025",
-    role: "Mobile App Engineer",
-    client: "TPA Employee Hub",
-    overview: "TPA Employee Hub Mobile is a core mobile application designed to simplify and digitize the employee document updating process. By structuring the codebase using Domain-Driven Design (DDD) and BLoC, the app ensures robust, scalable, and responsive form entry and document submission flows for workforce updates.",
-    keyFeatures: [
-      "Secure multi-document upload and submission for KTP, Family Card (KK), Bank details, and BPJS.",
-      "Domain-Driven Design (DDD) with clean separation of layers and dependency injection via GetIt.",
-      "Responsive UI layouts across multiple device sizes using ScreenUtil and custom Theme systems.",
-      "Multi-environment setup using Flutter flavors (dev, staging, prod) to streamline releases."
-    ],
-    challenges: [
-      "Ensuring large image files and scanned documents are compressed and uploaded efficiently over unstable connections.",
-      "Managing complex code-generated models using Freezed and AutoRoute transitions without performance degradation."
-    ]
-  },
-  {
-    slug: "dashboard-tpa-employee-hub",
-    title: "TPA Employee Hub Dashboard",
-    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "TanStack Query", "Zustand", "Zod", "Axios"],
-    description: "An administrative employee management portal built with Next.js and Tailwind CSS. Features include secure HTTPOnly cookie authentication, real-time bulk document processing, automated OCR data extraction progress queues, and unit-afdeling assignment controls.",
-    type: "web-only",
-    image: "",
-    images: ["", "", ""],
-    year: "2025",
-    role: "Lead Frontend Engineer",
-    client: "TPA Employee Hub",
-    overview: "The Dashboard TPA Employee Hub is a premium web portal built using Next.js 16 and Tailwind CSS 4 to manage bulk employee submissions and verify extracted document data. It provides administrators with a centralized control room to track OCR parsing queues, resolve failed scans, and assign regional admins to specific organizational divisions (Afdelings).",
-    keyFeatures: [
-      "Real-time OCR progress monitoring and manual verification for parsed employee documents (KTP, KK, BPJS, Bank).",
-      "Role-based access controls and assignment structures (1 Afdeling = 1 Admin; 1 Admin = Multiple Afdelings).",
-      "Robust client state caching using Zustand with persistence and server synchronization using TanStack Query.",
-      "Secured sessions using HTTPOnly JWT cookie authentication and automated refresh token rotation."
-    ],
-    challenges: [
-      "Handling cross-origin cookie credentials safely across local development environments and production servers.",
-      "Creating an intuitive side-by-side data verification view allowing admins to audit OCR fields against raw document scans efficiently."
-    ]
-  },
   {
     slug: "fastech-employee-app",
     title: "Fastech Internal Employee App",
