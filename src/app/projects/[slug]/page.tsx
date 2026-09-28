@@ -24,8 +24,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const ogImage = project.image && project.image.trim() !== "" ? project.image : "/images/ramfaq.png";
-
   return {
     title: `${project.title} — Case Study`,
     description: project.description,
@@ -33,18 +31,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `${project.title} | Ramdlan Faqih`,
       description: project.description,
       type: "article",
-      images: [
-        {
-          url: ogImage,
-          alt: project.title,
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${project.title} | Ramdlan Faqih`,
       description: project.description,
-      images: [ogImage],
     },
   };
 }
