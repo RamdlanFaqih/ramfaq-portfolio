@@ -51,7 +51,7 @@ export const projectsData: Project[] = [
     description: "A social connection platform helping users find local companions for various activities. Integrated real-time chat, location-based matching, and secure verification flows.",
     type: "mobile-only",
     image: "/images/temenin.png",
-    images: ["", "", ""],
+    images: ["/images/temenin.png", "/images/temenin-2.png", "/images/temenin.png"],
     year: "2024",
     role: "Mobile Engineer",
     client: "Temenin.Id Team",
