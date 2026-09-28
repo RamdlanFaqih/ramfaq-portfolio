@@ -24,6 +24,21 @@ export const metadata: Metadata = {
     template: "%s | Ramdlan Faqih",
   },
   description: "Mobile & Web Engineer. Your friendly co-worker 🤘🏻.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Ramdlan Faqih — Mobile & Web Engineer",
+    description: "Mobile & Web Engineer. Your friendly co-worker 🤘🏻.",
+    url: "/",
+    siteName: "Ramdlan Faqih — Portfolio",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ramdlan Faqih — Mobile & Web Engineer",
+    description: "Mobile & Web Engineer. Your friendly co-worker 🤘🏻.",
+  },
   icons: {
     icon: "/images/ramfaq-rounded.png",
     shortcut: "/images/ramfaq-rounded.png",
