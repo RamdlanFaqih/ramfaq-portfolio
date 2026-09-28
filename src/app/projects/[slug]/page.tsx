@@ -27,9 +27,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${project.title} — Case Study`,
     description: project.description,
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
     openGraph: {
       title: `${project.title} | Ramdlan Faqih`,
       description: project.description,
+      url: `/projects/${slug}`,
+      siteName: "Ramdlan Faqih — Portfolio",
       type: "article",
     },
     twitter: {

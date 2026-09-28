@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 
@@ -6,6 +6,10 @@ const geistSans = Geist({
   variable: "--font-sans",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#171717",
+};
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
