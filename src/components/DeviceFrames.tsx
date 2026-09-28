@@ -135,20 +135,14 @@ export const MobileWireframe = ({ index = 0 }: { index?: number }) => (
 // 2. Phone Frame Component
 export const PhoneFrame = ({ title, image, index = 0 }: { title: string; image?: string; index?: number }) => {
   return (
-    <div className="w-[170px] md:w-[190px] aspect-[9/18.5] bg-neutral-900 rounded-[32px] border-4 border-neutral-800 shadow-2xl overflow-hidden relative flex flex-col">
-      {/* Speaker and Camera Cutout (Notch) */}
-      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-3.5 bg-neutral-800 rounded-full z-20 flex items-center justify-center">
-        <div className="w-1 h-1 bg-neutral-950 rounded-full mr-1.5" />
-        <div className="w-4 h-0.5 bg-neutral-950 rounded-full" />
-      </div>
-
-      {/* Screen Area */}
-      <div className="flex-1 m-0.5 bg-white rounded-[27px] overflow-hidden relative p-1 flex flex-col justify-center border border-neutral-250">
+    <div className="w-[170px] md:w-[190px] aspect-[9/18.5] bg-neutral-900 rounded-[32px] border-[3px] border-neutral-800 shadow-2xl overflow-hidden relative flex flex-col">
+      {/* Fullscreen Screen Area */}
+      <div className="flex-1 w-full h-full bg-neutral-950 overflow-hidden relative flex flex-col justify-center">
         {image ? (
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover rounded-2xl transition-transform duration-700 ease-in-out "
+            className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
           />
         ) : (
           <MobileWireframe index={index} />
