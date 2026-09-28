@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     default: "Ramdlan Faqih — Mobile & Web Engineer",
     template: "%s | Ramdlan Faqih",
   },
-  description: "Minimalist portfolio showcasing high-performance mobile and web engineering projects.",
+  description: "Mobile & Web Engineer. Your friendly co-worker 🤘🏻.",
   icons: {
     icon: "/images/ramfaq-rounded.png",
     shortcut: "/images/ramfaq-rounded.png",
