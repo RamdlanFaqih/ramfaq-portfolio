@@ -69,47 +69,55 @@ export const projectsData: Project[] = [
   {
     slug: "tpa-employee-hub",
     title: "TPA Employee Hub (Mobile)",
-    tech: ["Flutter", "Dart", "BLoC", "AutoRoute", "Dio", "Freezed", "ScreenUtil"],
-    description: "A Domain-Driven Design (DDD) mobile application for employee management. Developed using Flutter and BLoC state management, enabling employees to securely submit and manage document updates (KTP, KK, Bank, BPJS) with offline support.",
+    tech: ["Flutter", "Dart", "BLoC", "Drift (SQLite)", "Google ML Kit", "AutoRoute", "Dio Smart Retry", "Freezed", "ScreenUtil"],
+    description: "A mission-critical offline-first mobile application architected with Domain-Driven Design (DDD) and Flutter BLoC for field Submitters (Admin Lapangan) at PT Triputra Agro Persada (TPA). Empowers officers to capture, validate, and submit employee documents with on-device ML Kit detection, local SQLite draft persistence, enforced read-only submission locking, granular Verifikator rejection feedback, submission cycle tracking, and real-time DBK sync status visibility.",
     type: "mobile-only",
     image: "",
     images: ["", "", ""],
     year: "2026",
     role: "Mobile App Engineer",
-    client: "TPA Employee Hub",
-    overview: "TPA Employee Hub Mobile is a core mobile application designed to simplify and digitize the employee document updating process. By structuring the codebase using Domain-Driven Design (DDD) and BLoC, the app ensures robust, scalable, and responsive form entry and document submission flows for workforce updates.",
+    client: "KODA",
+    overview: "TPA Employee Hub Mobile is the core field client application engineered for Submitter officers (Admin Lapangan) collecting and updating employee records across remote plantation estates. Structured with Domain-Driven Design (DDD) and Flutter BLoC, the app provides field workers with an end-to-end capture and submission workflow for identity documents (KTP, Kartu Keluarga, Rekening Bank / Surat Keterangan Bank, BPJS Ketenagakerjaan, BPJS Kesehatan, Foto Wajah). Engineered to thrive in remote areas with volatile internet connectivity, it features local SQLite draft caching via Drift, background image quality analysis, strict submission lifecycle locking, and transparent feedback loops connecting field Submitters directly with CMS Verifikators.",
     keyFeatures: [
-      "Secure multi-document upload and submission for KTP, Family Card (KK), Bank details, and BPJS.",
-      "Domain-Driven Design (DDD) with clean separation of layers and dependency injection via GetIt.",
-      "Responsive UI layouts across multiple device sizes using ScreenUtil and custom Theme systems.",
-      "Multi-environment setup using Flutter flavors (dev, staging, prod) to streamline releases."
+      "Submitter & Verifikator Cycle Attribution: Integrated submission metadata tracking displaying active Submitter name, submission timestamp, assigned Verifikator name, approval/rejection timestamp, and full chronological cycle history per employee record.",
+      "Actionable Rejection Feedback & Document Revision: Built dedicated rejection notes sections displaying exact Verifikator review notes and standardized reason codes per rejected document slot, tagged with targeted status indicators ('Perlu dilengkapi' for mandatory documents vs 'Perlu diperbarui' for optional documents).",
+      "Enforced Read-Only Submission Lock: Engineered automated form and camera locking mechanisms that transition records into a read-only state upon submission, preventing accidental duplicate edits and race conditions while documents await Verifikator review.",
+      "Offline-First Local Draft Persistence (Drift / SQLite): Implemented robust local database caching with Drift to automatically persist in-progress document uploads and forms during network failures, preventing data loss and blocking duplicate concurrent edits until local drafts are reconciled.",
+      "Smart Camera Pipeline & On-Device ML Kit: Integrated Google ML Kit for real-time face detection and OCR text recognition, featuring configurable document detection modes ('skipAll' and 'optimized'), background isolate compute processing for blur/brightness analysis, and portrait-locked orientation.",
+      "Enterprise DBK Sync Status Transparency: Integrated an interactive DBK sync status card displaying live sync states (Unsynced, Pending, Success, Failed), submission logs, and sync timestamps directly to field Submitters.",
+      "Alternative Bank Document & Multi-Document Upload: Broadened banking document verification supporting traditional savings passbooks, bank account statements (rekening koran), and official bank verification letters with instant preview."
     ],
     challenges: [
-      "Ensuring large image files and scanned documents are compressed and uploaded efficiently over unstable connections.",
-      "Managing complex code-generated models using Freezed and AutoRoute transitions without performance degradation."
+      "Offloading heavy computer vision calculations (blur, lighting, and document edge detection) to Dart background worker isolates (compute) to maintain a smooth 60 FPS camera viewfinder without frame drops.",
+      "Safeguarding data integrity in remote plantation environments with intermittent network coverage through resilient local Drift SQLite caching, chunked compression, and Dio Smart Retry policies.",
+      "Coordinating multi-state document status machines (Belum, Proses OCR, Perlu direview, Perlu dilengkapi, Perlu diperbarui, Lengkap) across complex re-submission and revision cycles without local-remote state drift."
     ]
   },
   {
     slug: "dashboard-tpa-employee-hub",
     title: "TPA Employee Hub Dashboard",
-    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "TanStack Query", "Zustand", "Zod", "Axios"],
-    description: "An administrative employee management portal built with Next.js and Tailwind CSS. Features include secure HTTPOnly cookie authentication, real-time bulk document processing, automated OCR data extraction progress queues, and unit-afdeling assignment controls.",
+    tech: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "TanStack Query v5", "Zustand", "React Hook Form", "Zod", "Axios"],
+    description: "An enterprise administrative & document verification CMS built with Next.js 16 and Tailwind CSS 4 for PT Triputra Agro Persada (TPA). Features granular Role-Based Access Control (RBAC) separating Super Admin, Verifikator, and Submitter roles, territorial Unit-Afdeling assignment matrix, real-time OCR extraction review with fuzzy regional master data matching, strict two-way document rejection feedback loops, and enterprise DBK (Database Karyawan) synchronization with optimistic state updates.",
     type: "web-only",
     image: "/images/tpa-dashboard-2.png",
     images: ["/images/tpa-dashboard-2.png", "/images/tpa-dashboard.png", "/images/tpa-dashboard-2.png"],
     year: "2026",
     role: "Frontend Engineer",
     client: "KODA",
-    overview: "The Dashboard TPA Employee Hub is a premium web portal built using Next.js 16 and Tailwind CSS 4 to manage bulk employee submissions and verify extracted document data. It provides administrators with a centralized control room to track OCR parsing queues, resolve failed scans, and assign regional admins to specific organizational divisions (Afdelings).",
+    overview: "The TPA Employee Hub Dashboard is an enterprise web CMS built with Next.js 16 (App Router) and Tailwind CSS 4 to orchestrate, audit, and verify high-volume workforce identity records across extensive plantation territories. The platform introduces a multi-tier operational hierarchy: Super Admins manage regional assignments, territorial boundaries (Units & Afdelings), and system integrations; Verifikators operate dedicated audit portals to inspect high-resolution employee documents against OCR extractions, approve or reject records with standardized feedback, and normalize regional address structures; and Submitters track operational batches. Fully integrated with core enterprise Database Karyawan (DBK) systems, the platform features optimistic synchronization queues, robust error diagnostics, and granular security route guards.",
     keyFeatures: [
-      "Real-time OCR progress monitoring and manual verification for parsed employee documents (KTP, KK, BPJS, Bank).",
-      "Role-based access controls and assignment structures (1 Afdeling = 1 Admin; 1 Admin = Multiple Afdelings).",
-      "Robust client state caching using Zustand with persistence and server synchronization using TanStack Query.",
-      "Secured sessions using HTTPOnly JWT cookie authentication and automated refresh token rotation."
+      "Multi-Tier Role Management (Super Admin, Verifikator, Submitter): Architected a strict RBAC security layer separating operational responsibilities. Features dedicated Verifikator review interfaces, route-level authorization guards (HTTP 403 UnauthorizedScreen), dynamic navigation permission filters, and territorial assignment matrices (1:1 and 1:N Unit-Afdeling mapping) with assignment collision prevention.",
+      "Side-by-Side OCR Auditing & Family Member Management: Built an interactive verification interface featuring high-resolution pan-zoom document previews side-by-side with extracted OCR fields (KTP, Kartu Keluarga, Buku Rekening, BPJS Ketenagakerjaan, BPJS Kesehatan). Included a dynamic Kartu Keluarga (KK) family member editor to add or correct unparsed relatives with strict 16-digit NIK validation.",
+      "Intelligent Regional Master Data Fuzzy Matching: Implemented Levenshtein/fuzzy matching algorithms (regionValidation.ts) comparing unstructured OCR address strings against DBK official regional master data (Provinsi, Kota/Kabupaten, Kecamatan, Kelurahan/Desa) with hierarchical parent-child disambiguation and manual dropdown fallbacks.",
+      "Standardized Two-Way Document Rejection & Feedback Loop: Engineered a structured verification dialog requiring explicit rejection reasons ('Foto kurang jelas', 'Foto tidak sesuai', 'Lainnya' with mandatory notes). Rejection reasons automatically propagate to mobile Submitters with badge status classifications ('Perlu dilengkapi' vs 'Perlu diperbarui').",
+      "System Approval Guard & Validation Rules: Enforced strict client- and server-side validation rules preventing approvals if mandatory documents (Face, KTP, KK, Bank) or required fields are incomplete, malformed, or fail format criteria.",
+      "Enterprise DBK (Database Karyawan) Synchronization Engine: Engineered single-click and bulk employee data synchronization into the enterprise DBK backend. Implemented optimistic UI updates, comprehensive sync status filtering (Unsynced, Pending, Success, Failed), and detailed sync failure diagnostics with interactive tooltips.",
+      "Submission Cycle History & Re-Verification Timeline: Chronological audit trail logging submission and verification cycles, tracking previous vs new assignees, rejection notes, review timestamps, and approval attributions per operational cycle."
     ],
     challenges: [
-      "Handling cross-origin cookie credentials safely across local development environments and production servers.",
-      "Creating an intuitive side-by-side data verification view allowing admins to audit OCR fields against raw document scans efficiently."
+      "Developing resilient regional master data fuzzy matching to accurately reconcile misspelled, truncated, or noisy OCR address tokens with authoritative governmental hierarchical codes.",
+      "Enforcing bulletproof client-side and server-side RBAC guards that cleanly restrict Verifikators from administrative system settings and raw audit logs while maintaining seamless multi-role operation.",
+      "Maintaining instantaneous UI responsiveness and state consistency across large-scale employee registries with TanStack Query optimistic cache updates during bulk DBK synchronizations."
     ]
   },
   {
