@@ -3,12 +3,12 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
-  variable: "--font-sans",
+  variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
 export const viewport: Viewport = {
-  themeColor: "#171717",
+  themeColor: "#fbfaf7",
 };
 
 const siteUrl =
