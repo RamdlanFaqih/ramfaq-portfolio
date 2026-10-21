@@ -9,7 +9,7 @@ import { projectsData, type Project } from "@/data/projects";
 
 const descriptions: Record<string, string> = {
   "sancha-tea": "Mobile ordering, store finder, and loyalty rewards for Sancha Tea.",
-  "temenin-id": "A mobile app connecting people with companions for everyday activities.",
+  "temenin-id": "Companion bookings, payments, real-time chat, and online audio/video sessions.",
   "tpa-employee-hub": "Employee document collection with offline drafts and verification feedback.",
   "dashboard-tpa-employee-hub": "A document verification dashboard connecting field submissions, review teams, and employee records.",
   "fun-music-software": "A music player with streaming, offline playback, and playlists.",

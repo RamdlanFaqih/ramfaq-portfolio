@@ -47,23 +47,30 @@ export const projectsData: Project[] = [
   {
     slug: "temenin-id",
     title: "Temenin.Id",
-    tech: ["React Native", "Expo", "TypeScript", "Zustand", "Tailwind CSS", "Firebase"],
-    description: "A social connection platform helping users find local companions for various activities. Integrated real-time chat, location-based matching, and secure verification flows.",
+    tech: ["React Native", "Expo", "TypeScript", "Expo Router", "TanStack Query", "Axios", "WebSocket", "Daily (WebRTC)", "Firebase Cloud Messaging", "Notifee", "AsyncStorage"],
+    description: "A companion-booking app with customer and provider workflows, payments, real-time chat, and online audio/video sessions.",
     type: "mobile-only",
     image: "/images/temenin.png",
     images: ["/images/temenin.png", "/images/temenin-2.png", "/images/temenin.png"],
     year: "2026",
     role: "Mobile Engineer",
     client: "Temenin.id",
-    overview: "Temenin.Id is a social networking and activity companion mobile app. It connects individuals wanting to hire companions for events, dining, or travel with verified companion guides in their vicinity.",
+    overview: "Temenin.id connects customers with companions for in-person activities and online sessions. The React Native app supports both customer and provider roles: customers can browse services, choose a schedule, book, pay, and communicate with their provider. Providers can submit verification documents, manage services, respond to bookings, and track their wallet. My work on the mobile app covers these flows alongside real-time updates, notifications, and in-app audio/video sessions.",
     keyFeatures: [
-      "Real-time instant chat and push notifications powered by Firebase Cloud Messaging.",
-      "Map integrations displaying nearby guides, service catalogs, and reviews.",
-      "Automated KYC checks and a secure, anonymous peer-rating framework."
+      "Service discovery and booking: Browse provider profiles and services, check available hours, request a price quote, and manage bookings through payment, rescheduling, extensions, cancellation, and completion.",
+      "Customer and provider workflows: Switch between roles, complete provider onboarding and KYC document submission, manage service listings, and accept or decline incoming bookings.",
+      "Real-time messaging: Built chat with WebSocket updates, typing and read events, image sharing, voice notes, and unread conversation counts.",
+      "Online sessions: Integrated Daily audio/video rooms with participant updates, microphone and camera controls, permission feedback, and call cleanup when leaving the screen.",
+      "Payments and wallet: Integrated booking payment status, wallet balances, top-ups, transaction history, bank account management, and withdrawal requests.",
+      "Notifications and data updates: Connected Firebase Cloud Messaging and Notifee to booking alerts and notification navigation, with targeted TanStack Query refreshes for affected screens."
     ],
     challenges: [
-      "Implementing low-latency push notification triggers on fast-closing app sessions.",
-      "Protecting user privacy by bounding GPS coordination reports to generalized radius bubbles."
+      "Keeping screens consistent when bookings, payments, or messages change: Grouped incoming changes by data domain and batched query invalidations, retaining events that arrive during a refresh for a follow-up update.",
+      "Preventing stale data after account or role changes: Scoped private queries to the current account and session, and guarded asynchronous session operations so outdated results cannot overwrite a newer session.",
+      "Recovering from unstable connections without repeated request bursts: Added capped exponential backoff for WebSocket reconnections and token-refresh retries, resetting connection attempts only after a stable connection window.",
+      "Opening the correct screen from a notification after a cold start: Queued notification payloads until navigation was ready, rather than attempting to route before the app had initialized.",
+      "Keeping booking prices aligned with changing selections: Matched server quotes to their request inputs, ignored outdated responses, validated returned totals, and exposed loading, error, and retry states.",
+      "Managing audio/video lifecycle transitions: Synchronized participant and media events with the meeting UI, handled camera and microphone errors, and removed listeners and destroyed the call object on exit."
     ]
   },
   {
