@@ -1,3 +1,4 @@
+import Sketch from "./Sketch";
 import Image from "next/image";
 import { ArrowDown, ArrowUpRight, Code2 } from "lucide-react";
 
@@ -13,11 +14,14 @@ export default function Hero() {
           <a className="text-link" href="#contact">Let’s talk <ArrowUpRight size={16} /></a>
         </div>
       </div>
+      <div className="profile-sketch">
+        <Sketch kind="idea" />
       <aside className="profile-note" aria-label="Ramdlan Faqih">
         <div className="note-top"><Code2 size={18} aria-hidden="true" /><span>Profile</span><span className="note-window-dots" aria-hidden="true"><i /><i /><i /></span></div>
         <div className="portrait-wrap"><Image src="/images/ramfaq.png" alt="Illustrated portrait of Faqih" width={260} height={265} preload /></div>
         <div className="note-bottom"><strong>Mobile & Web Engineer</strong></div>
       </aside>
+      </div>
     </section>
   );
 }

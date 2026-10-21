@@ -1,3 +1,4 @@
+import Sketch from "./Sketch";
 import { ChevronDown } from "lucide-react";
 
 interface ExperienceItem {
@@ -51,7 +52,7 @@ export default function Experience() {
   return (
     <section id="experience" className="experience-section">
       <div className="page-width experience-layout">
-        <div className="experience-intro"><p className="eyebrow"><span className="section-index">02</span> EXPERIENCE</p><h2>Work experience.</h2></div>
+        <div className="experience-intro"><p className="eyebrow"><span className="section-index">02</span> EXPERIENCE</p><h2>Work experience.</h2><Sketch kind="brainstorm" /></div>
         <div className="experience-list">
           {experiences.map((exp, index) => (
             <details key={exp.company} className="experience-item" open={index === 0}>

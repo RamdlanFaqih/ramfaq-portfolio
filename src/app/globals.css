@@ -268,3 +268,18 @@ h2 { font-size: clamp(28px, 3vw, 37px); line-height: 1.2; letter-spacing: -1.4px
 .contact-actions a, .contact-actions button { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; font-size: 14px; color: #375792; }
 .contact-actions a:hover, .contact-actions button:hover { text-decoration: underline; text-underline-offset: 4px; }
 .contact-status { min-height: 24px; max-width: 340px; margin-top: 4px; font-size: 14px; color: #5e6058; }
+
+/* Anchor the small margin sketches without changing content flow. */
+.hero-section, .section-heading, .experience-intro, .contact-content { position: relative; }
+
+.toolkit-label { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-shrink: 0; }
+.more-work-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 60px; }
+@media (max-width: 700px) {
+  .toolkit-label { width: 100%; }
+  .more-work-heading { min-height: 48px; }
+}
+
+@media (max-width: 700px) {
+  .profile-sketch { position: relative; width: 240px; max-width: 100%; margin-inline: auto; padding-top: 48px; }
+  .profile-sketch .profile-note { max-width: 100%; }
+}

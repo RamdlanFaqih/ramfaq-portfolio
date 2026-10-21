@@ -1,5 +1,6 @@
 "use client";
 
+import Sketch from "./Sketch";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,7 +28,7 @@ export default function SelectedWorks() {
   const other = visible.filter(project => !project.image);
   return (
     <section id="works" className="page-width section-space">
-      <div className="section-heading"><div><p className="eyebrow"><span className="section-index">01</span> SELECTED WORK</p><h2>Selected projects<span className="wordmark-dot">.</span></h2></div></div>
+      <div className="section-heading"><Sketch kind="arrow" /><div><p className="eyebrow"><span className="section-index">01</span> SELECTED WORK</p><h2>Selected projects<span className="wordmark-dot">.</span></h2></div></div>
       <div className="work-toolbar"><div className="filter-list" aria-label="Filter projects">{filters.map(item => <button key={item} aria-pressed={filter === item} onClick={() => setFilter(item)} className={filter === item ? "selected" : ""}>{item === "All work" ? <Grid2X2 size={16} aria-hidden="true" /> : item === "Mobile" ? <Smartphone size={16} aria-hidden="true" /> : <Monitor size={16} aria-hidden="true" />}{item}</button>)}</div><span aria-live="polite">{visible.length} projects</span></div>
       <div className="project-grid">
         {featured.map(project => <Link key={project.slug} href={`/projects/${project.slug}`} className={`project-card project-${project.slug}`}>
@@ -38,7 +39,7 @@ export default function SelectedWorks() {
           <div className="project-info"><div className="project-meta"><span>{project.tech.slice(0, 2).join(" / ")}</span><span>{project.year}</span></div><h3>{project.title}<ArrowUpRight size={21} /></h3><p>{descriptions[project.slug] || project.description}</p></div>
         </Link>)}
       </div>
-      {other.length > 0 && <div className="more-work"><div className="more-work-heading"><h3>More projects</h3></div>{other.map(project => <Link key={project.slug} href={`/projects/${project.slug}`} className="project-row"><FileText size={19} /><span><strong>{project.title}</strong><small>{project.role} · {project.tech[0]}</small></span><span className="row-year">{project.year}</span><ArrowUpRight size={19} /></Link>)}</div>}
+      {other.length > 0 && <div className="more-work"><div className="more-work-heading"><h3>More projects</h3><Sketch kind="folder" /></div>{other.map(project => <Link key={project.slug} href={`/projects/${project.slug}`} className="project-row"><FileText size={19} /><span><strong>{project.title}</strong><small>{project.role} · {project.tech[0]}</small></span><span className="row-year">{project.year}</span><ArrowUpRight size={19} /></Link>)}</div>}
     </section>
   );
 }
