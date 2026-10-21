@@ -10,7 +10,7 @@ export default function Hero() {
         <p className="hero-intro">I develop mobile and web apps—from the first screen to release.</p>
         <div className="hero-actions">
           <a className="button-primary" href="#works">View my work <ArrowDown size={16} /></a>
-          <a className="text-link" href="mailto:ramfaqih@gmail.com">Let’s talk <ArrowUpRight size={16} /></a>
+          <a className="text-link" href="#contact">Let’s talk <ArrowUpRight size={16} /></a>
         </div>
       </div>
       <aside className="profile-note" aria-label="Ramdlan Faqih">
